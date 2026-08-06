@@ -1,0 +1,5 @@
+name: EndStop
+version: '${version}'
+
+main: de.main.endStop.EndStop
+api-version: '1.21'
