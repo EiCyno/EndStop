@@ -16,16 +16,22 @@ public class TeleportBlockListener implements Listener {
 
         World.Environment environment = event.getTo().getWorld().getEnvironment();
 
-        // Nether
-        if (environment == World.Environment.NETHER) {
-            event.setCancelled(true);
-            event.getPlayer().sendMessage("§cDer Nether ist derzeit deaktiviert!");
-            return;
-        }
-        //end
-        if (environment == World.Environment.THE_END) {
-            event.setCancelled(true);
-            event.getPlayer().sendMessage("§cDas End ist derzeit deaktiviert!");
+        switch (environment) {
+
+            case NETHER:
+                event.setCancelled(true);
+                event.getPlayer().sendMessage("§cDer Nether ist derzeit deaktiviert!");
+                break;
+
+            case THE_END:
+                event.setCancelled(true);
+                event.getPlayer().sendMessage("§cDas End ist derzeit deaktiviert!");
+                break;
+
+            case NORMAL:
+                event.setCancelled(false);
+                event.getPlayer().sendMessage("§aNicht deaktivert :)");
+                break;
         }
     }
 }
